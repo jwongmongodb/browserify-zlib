@@ -41,17 +41,33 @@ for (var bk = 0; bk < bkeys.length; bk++) {
   }
 }
 
+const constants = process.binding('constants').zlib;
+const {
+  // Zlib flush levels
+  Z_NO_FLUSH, Z_BLOCK, Z_PARTIAL_FLUSH, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_FINISH,
+  // Zlib option values
+  Z_MIN_CHUNK, Z_MIN_WINDOWBITS, Z_MAX_WINDOWBITS, Z_MIN_LEVEL, Z_MAX_LEVEL,
+  Z_MIN_MEMLEVEL, Z_MAX_MEMLEVEL, Z_DEFAULT_CHUNK, Z_DEFAULT_COMPRESSION,
+  Z_DEFAULT_STRATEGY, Z_DEFAULT_WINDOWBITS, Z_DEFAULT_MEMLEVEL, Z_FIXED,
+  // Node's compression stream modes (node_zlib_mode)
+  DEFLATE, DEFLATERAW, INFLATE, INFLATERAW, GZIP, GUNZIP, UNZIP,
+  BROTLI_DECODE, BROTLI_ENCODE,
+  // Brotli operations (~flush levels)
+  BROTLI_OPERATION_PROCESS, BROTLI_OPERATION_FLUSH,
+  BROTLI_OPERATION_FINISH
+} = constants;
+
 // translation table for return codes.
 const codes = {
-  Z_OK: binding.Z_OK,
-  Z_STREAM_END: binding.Z_STREAM_END,
-  Z_NEED_DICT: binding.Z_NEED_DICT,
-  Z_ERRNO: binding.Z_ERRNO,
-  Z_STREAM_ERROR: binding.Z_STREAM_ERROR,
-  Z_DATA_ERROR: binding.Z_DATA_ERROR,
-  Z_MEM_ERROR: binding.Z_MEM_ERROR,
-  Z_BUF_ERROR: binding.Z_BUF_ERROR,
-  Z_VERSION_ERROR: binding.Z_VERSION_ERROR
+  Z_OK: constants.Z_OK,
+  Z_STREAM_END: constants.Z_STREAM_END,
+  Z_NEED_DICT: constants.Z_NEED_DICT,
+  Z_ERRNO: constants.Z_ERRNO,
+  Z_STREAM_ERROR: constants.Z_STREAM_ERROR,
+  Z_DATA_ERROR: constants.Z_DATA_ERROR,
+  Z_MEM_ERROR: constants.Z_MEM_ERROR,
+  Z_BUF_ERROR: constants.Z_BUF_ERROR,
+  Z_VERSION_ERROR: constants.Z_VERSION_ERROR
 };
 
 const ckeys = Object.keys(codes);
