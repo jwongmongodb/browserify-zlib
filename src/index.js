@@ -43,15 +43,15 @@ for (var bk = 0; bk < bkeys.length; bk++) {
 
 // translation table for return codes.
 const codes = {
-  Z_OK: binding.Z_OK,
-  Z_STREAM_END: binding.Z_STREAM_END,
-  Z_NEED_DICT: binding.Z_NEED_DICT,
-  Z_ERRNO: binding.Z_ERRNO,
-  Z_STREAM_ERROR: binding.Z_STREAM_ERROR,
-  Z_DATA_ERROR: binding.Z_DATA_ERROR,
-  Z_MEM_ERROR: binding.Z_MEM_ERROR,
-  Z_BUF_ERROR: binding.Z_BUF_ERROR,
-  Z_VERSION_ERROR: binding.Z_VERSION_ERROR
+    Z_OK: binding.Z_OK,
+    Z_STREAM_END: binding.Z_STREAM_END,
+    Z_NEED_DICT: binding.Z_NEED_DICT,
+    Z_ERRNO: binding.Z_ERRNO,
+    Z_STREAM_ERROR: binding.Z_STREAM_ERROR,
+    Z_DATA_ERROR: binding.Z_DATA_ERROR,
+    Z_MEM_ERROR: binding.Z_MEM_ERROR,
+    Z_BUF_ERROR: binding.Z_BUF_ERROR,
+    Z_VERSION_ERROR: binding.Z_VERSION_ERROR
 };
 
 const ckeys = Object.keys(codes);
@@ -62,6 +62,10 @@ for (var ck = 0; ck < ckeys.length; ck++) {
 
 Object.defineProperty(exports, 'codes', {
   enumerable: true, value: Object.freeze(codes), writable: false
+});
+
+Object.defineProperty(exports, 'constants', {
+    configurable: false, enumerable: true, value: binding
 });
 
 exports.Deflate = Deflate;
